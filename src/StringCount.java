@@ -38,16 +38,18 @@ public class StringCount {
                 if (!file.exists() || file.isDirectory()) {
                     throw new FileNotFoundException("Not found as a file");
                 }
-                if (fileName != null) {
-                    break;
+                if (fileName == null) {
+                    throw new IOException("FILNEMANE IS NULL");
+                    //break;
                 }
-                if (!(fileName.isEmpty())) {
-                    break;
+                if ((fileName.isEmpty())) {
+                    throw new IOException("FILENAME  IS EMPTY");
                 }
                 if ((file.length() == 0)) {
                     //System.out.println("The file is empty! please provide a file with words.");
                     throw new IOException("The file is empty! please provide a file with words.");
                 }
+                break;
             } catch (FileNotFoundException fe) {
                 System.out.println(fe.getMessage());
             } catch (IOException e) {
